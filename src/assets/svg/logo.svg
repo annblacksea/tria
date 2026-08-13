@@ -1,0 +1,11 @@
+<svg viewBox="0 0 62 62" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="62.000000" height="62.000000" fill="none">
+	<defs>
+		<linearGradient id="paint_linear_1" x1="6.20001221" x2="55.8000069" y1="6.19999695" y2="55.7999916" gradientUnits="userSpaceOnUse">
+			<stop stop-color="rgb(154,248,235)" offset="0" stop-opacity="1" />
+			<stop stop-color="rgb(254,157,167)" offset="1" stop-opacity="1" />
+		</linearGradient>
+	</defs>
+	<rect id="svg" width="62.000000" height="62.000000" x="0.000000" y="0.000000" />
+	<circle id="159" cx="31.0000114" cy="30.9999962" r="24.7999992" stroke="url(#paint_linear_1)" stroke-width="10" />
+	<rect id="circle.[object SVGAnimatedString]" width="50.000000" height="50.000000" x="302.000000" y="94.000000" />
+</svg>

@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "anna",
+      "password": "Qwerty123",
+      "role_id": "0",
+      "registered_at": "2025-11-17 13:13",
+      "avatar": null
+    },
+    {
+      "id": "4f14",
+      "login": "annblacksea",
+      "password": "Qwerty123",
+      "registered_at": "2026-04-23 15:28",
+      "role_id": "1"
+    }
+  ],
+  "roles": [
+    {
+      "id": "0",
+      "name": "Администратор"
+    },
+    {
+      "id": "1",
+      "name": "Модератор"
+    },
+    {
+      "id": "2",
+      "name": "Творец"
+    },
+    {
+      "id": "3",
+      "name": "Гость"
+    }
+  ],
+  "sketches": [
+    {
+      "id": "001",
+      "author": "автор",
+      "title": "Первый эскиз",
+      "images_url": "",
+      "description": "Текст",
+      "published_at": "2025-19-11"
+    }
+  ],
+  "comments": [],
+  "$schema": "./node_modules/json-server/schema.json"
+}
