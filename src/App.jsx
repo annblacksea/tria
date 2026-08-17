@@ -1,6 +1,6 @@
 import { Route, Router, Routes } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
-import { Authorisation, Registration, UserPage, Users } from './pages';
+import { Authorisation, Registration, Sketch, UserPage, Users } from './pages';
 import styles from './App.module.css';
 
 function App() {
@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<div>Главная</div>} />
           <Route path="/profile/:id" element={<UserPage />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/sketch/:sketchId" element={<p>Этюд</p>} />
+          <Route path="/sketch/:sketchId" element={<Sketch />} />
           <Route path="/create-sketch" element={<p>Создать этюд</p>} />
           <Route path="/messages" element={<p>Сообщения</p>}>
             <Route path="message:messageId" element={<p>Одно сообщение</p>} />

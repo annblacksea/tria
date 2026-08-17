@@ -11,3 +11,4 @@ export * from './check-access/CheckAccess';
 export * from './control-panel/ControlPanel';
 export * from './user-row/UserRow';
 export * from './section-card/SectionCard';
+export * from './carousel/Carousel';

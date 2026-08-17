@@ -39,7 +39,11 @@
       "id": "001",
       "author": "автор",
       "title": "Первый эскиз",
-      "images_url": "",
+      "images_url": [
+        "https://fastly.picsum.photos/id/777/1200/800.jpg?hmac=2qSWsQ6WMPlNyQxQkxO7w4_nEEOUWHhHYnvXJDnkPlA",
+        "https://fastly.picsum.photos/id/1029/1200/800.jpg?hmac=X2hQ0S0g1EX_3DUr-gUV1veXSC-dGiJ6oS6pscnyFys",
+        "https://fastly.picsum.photos/id/832/1200/800.jpg?hmac=6490r5lsrzsp7HqmXL5h5jWs_a9qzzljKi_arzD7U24"
+      ],
       "description": "Текст",
       "published_at": "2025-19-11"
     }

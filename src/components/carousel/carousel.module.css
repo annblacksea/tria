@@ -1,0 +1,24 @@
+.embla {
+  width: 100%;
+  max-width: 1700px;
+  margin: 0 auto;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+}
+
+.embla__slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
