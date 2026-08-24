@@ -1,6 +1,7 @@
 import {
   authorize,
   fetchRoles,
+  fetchSketch,
   fetchUsers,
   logout,
   register,
@@ -14,6 +15,7 @@ export const server = {
   register,
   fetchUsers,
   fetchRoles,
+  fetchSketch,
   removeUser,
   saveUserUpdates,
 };

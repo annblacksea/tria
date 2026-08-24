@@ -9,7 +9,9 @@ export const useServerRequest = () => {
   return useCallback(
     (operation, ...params) => {
       // ...params - логин, пароль
-      const request = ['register', 'authorize'].includes(operation) ? params : [session, ...params];
+      const request = ['register', 'authorize', 'fetchSketch'].includes(operation)
+        ? params
+        : [session, ...params];
       //определяется, нужно ли передавать хэш сессии
       return server[operation](...request);
     },

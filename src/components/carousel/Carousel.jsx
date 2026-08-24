@@ -26,7 +26,7 @@ export const Carousel = () => {
   ];
 
   return (
-    <div className="embla flex gap-5">
+    <div className="embla flex gap-5 py-7">
       <div className={`${styles.embla__viewport}`} ref={emblaRef}>
         <ul className={styles.embla__container}>
           {images.map(({ id, link, description }) => (
