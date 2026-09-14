@@ -1,27 +1,17 @@
-import { createUser, getUser } from '../api';
+import { createUser, getUserByLogin } from '../api';
 import { sessions } from '../sessions';
+import { authorize } from './authorize';
 
 export const register = async (regLogin, regPassword) => {
   try {
-    let newUser = await getUser(regLogin);
+    let newUser = await getUserByLogin(regLogin);
     if (newUser) {
       return { error: 'Такой пользователь уже зарегистрирован', res: null };
     }
-    const user = await createUser(regLogin, regPassword);
-    //Не добавляем сессию сразу, т.к. между регистрацией и входом в систему могут быть другие действия.
-    //Например, подтверждение по почте или капча
-    return {
-      error: null,
-      res: {
-        userData: {
-          id: user.id,
-          login: user.login,
-          registeredAt: user.registeredAt,
-          roleId: user.roleId,
-        },
-        session: sessions.add(user),
-      },
-    };
+
+    await createUser(regLogin, regPassword);
+
+    return await authorize(regLogin, regPassword);
   } catch (error) {
     return { error: error.message, res: null };
   }

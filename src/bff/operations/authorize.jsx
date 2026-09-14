@@ -1,9 +1,9 @@
-import { getUser } from '../api';
+import { getUserByLogin } from '../api';
 import { sessions } from '../sessions';
 
 export const authorize = async (authLogin, authPassword) => {
   try {
-    const user = await getUser(authLogin);
+    const user = await getUserByLogin(authLogin);
 
     if (!user) {
       return { error: 'Такой пользователь не зарегистрирован', res: null };
@@ -14,6 +14,8 @@ export const authorize = async (authLogin, authPassword) => {
 
     const { id, login, registeredAt, roleId } = user;
 
+    const sessionHash = await sessions.create(user);
+
     return {
       error: null,
       res: {
@@ -23,7 +25,7 @@ export const authorize = async (authLogin, authPassword) => {
           registeredAt,
           roleId,
         },
-        session: sessions.add(user),
+        session: sessionHash,
       },
     };
   } catch (error) {
