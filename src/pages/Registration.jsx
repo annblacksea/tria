@@ -64,13 +64,14 @@ export const Registration = () => {
   const onSubmit = async ({ login, password }) => {
     setRegError(null);
     try {
-      const result = await server.register(login, password);
+      const result = await serverRequest('register', login, password);
       if (result?.error) {
         setRegError(result.error);
         return;
       }
       console.log(result);
       dispatch(setUser(result.res));
+      sessionStorage.setItem('hash', result.res.session);
       navigate(`/profile/${result.res?.userData.id}`);
     } catch (error) {
       setRegError('Что-то пошло не так');

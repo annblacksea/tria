@@ -44,6 +44,7 @@ export const Authorisation = () => {
       }
 
       dispatch(setUser(result.res));
+      sessionStorage.setItem('hash', result.res.session);
       navigate('/');
     } catch (error) {
       setAuthError(error.error);

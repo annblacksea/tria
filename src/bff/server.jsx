@@ -1,6 +1,7 @@
 import {
   authorize,
   fetchRoles,
+  fetchUserBySessionHash,
   fetchUsers,
   logout,
   register,
@@ -13,6 +14,7 @@ export const server = {
   authorize,
   register,
   fetchUsers,
+  fetchUserBySessionHash,
   fetchRoles,
   removeUser,
   saveUserUpdates,

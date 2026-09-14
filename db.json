@@ -44,6 +44,13 @@
       "published_at": "2025-19-11"
     }
   ],
+  "sessions": [
+    {
+      "user_id": "4f14",
+      "session_hash": "60871366132272",
+      "id": 1
+    }
+  ],
   "comments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

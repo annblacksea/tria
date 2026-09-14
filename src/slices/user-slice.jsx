@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { ROLE } from '../constants/roles';
-import { server } from '../bff/server';
 
 const initialState = {
   userData: {

@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useServerRequest } from '../hooks';
 import { H2, SectionCard, UserRow } from './../components';
 import { ROLE } from '../constants/roles';
+import { selectUserSession } from '../selectors';
+import { useSelector } from 'react-redux';
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -9,31 +11,38 @@ export const Users = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
   const requestServer = useServerRequest();
+  const userSession = useSelector(selectUserSession);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const [usersRes, rolesRes] = await Promise.all([
-          requestServer('fetchUsers'),
-          requestServer('fetchRoles'),
-        ]);
+  useEffect(
+    () => {
+      if (!userSession) return;
 
-        const error = usersRes.error || rolesRes.error;
+      (async () => {
+        try {
+          const [usersRes, rolesRes] = await Promise.all([
+            requestServer('fetchUsers'),
+            requestServer('fetchRoles'),
+          ]);
 
-        if (error) {
-          setErrorMessage(error);
-          return;
+          const error = usersRes.error || rolesRes.error;
+
+          if (error) {
+            setErrorMessage(error);
+            return;
+          }
+          console.log('Данные пользователей:', usersRes);
+          console.log('Ошибка данные пользователей:', error);
+          setUsers(usersRes?.res);
+          setRoles(rolesRes?.res);
+        } catch (error) {
+          setErrorMessage('Ошибка загрузки данных');
+          console.error('Критическая ошибка:', error);
         }
-        console.log('Данные пользователей:', usersRes);
-        console.log('Ошибка данные пользователей:', error);
-        setUsers(usersRes?.res);
-        setRoles(rolesRes?.res);
-      } catch (error) {
-        setErrorMessage('Ошибка загрузки данных');
-        console.error('Критическая ошибка:', error);
-      }
-    })();
-  }, [requestServer, shouldUpdateUserList]);
+      })();
+    },
+    [requestServer, shouldUpdateUserList],
+    userSession
+  );
 
   const onUserRemove = async (userId) => {
     try {
