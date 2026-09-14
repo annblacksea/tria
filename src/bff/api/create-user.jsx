@@ -26,15 +26,3 @@ export const createUser = async (login, password) => {
     return null;
   }
 };
-
-// export const createUser = (login, password) =>
-//   fetch('http://localhost:3000/users', {
-//     method: 'POST',
-//     headers: { 'Content-type': 'application/json;charset=utf-8' },
-//     body: JSON.stringify({
-//       login,
-//       password,
-//       registered_at: generateDate(),
-//       role_id: ROLE.USER,
-//     }),
-//   }).then((createdUser) => createdUser.json());

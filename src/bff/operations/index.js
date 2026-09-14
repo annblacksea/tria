@@ -6,3 +6,4 @@ export * from './fetch-roles';
 export * from './remove-user';
 export * from './save-user-updates';
 export * from './fetch-sketch';
+export * from './fetch-user-by-session-hash';

@@ -1,9 +1,32 @@
 import { Route, Router, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Layout } from './components/layout/Layout';
 import { Authorisation, Registration, Sketch, UserPage, Users } from './pages';
 import styles from './App.module.css';
+import { useDispatch } from 'react-redux';
+import { useServerRequest } from './hooks';
+import { setUser } from './slices/user-slice';
 
 function App() {
+  const serverRequest = useServerRequest();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const currentSessionHash = sessionStorage.getItem('hash');
+
+    if (!currentSessionHash) {
+      return;
+    }
+
+    serverRequest('fetchUserBySessionHash', currentSessionHash).then((result) => {
+      if (result.error || !result.res) {
+        sessionStorage.removeItem('hash');
+      }
+
+      dispatch(setUser(result.res));
+    });
+  }, [serverRequest]);
+
   return (
     <>
       <Routes>

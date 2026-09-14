@@ -1,11 +1,11 @@
 import { transformUser } from '../transformers';
 
-export const getUser = async (loginToFind) => {
+export const getUserByLogin = async (loginToFind) => {
   try {
     const response = await fetch(`http://localhost:3000/users?login=${loginToFind}`);
 
     if (!response.ok) {
-      throw new Error('Ошибка при запросе к базе данных');
+      throw new Error('Пользователь с таким логином не найден');
     }
 
     const loadedUser = await response.json();
@@ -15,6 +15,6 @@ export const getUser = async (loginToFind) => {
     return user && transformUser(user);
   } catch (error) {
     console.error(error.message);
-    return error;
+    return null;
   }
 };

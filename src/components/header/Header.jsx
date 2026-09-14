@@ -29,6 +29,7 @@ export const Header = () => {
                 onClick={() => {
                   requestServer('logout', userSession);
                   dispatch(logout());
+                  sessionStorage.removeItem('hash');
                   navigate(`/`);
                 }}
               >
@@ -37,7 +38,6 @@ export const Header = () => {
             </div>
           </div>
         )}
-        {console.log(userSession, userData)}
       </div>
     </header>
   );

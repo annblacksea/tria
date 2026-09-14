@@ -48,6 +48,7 @@
       "published_at": "2025-19-11"
     }
   ],
+  "sessions": [],
   "comments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }
