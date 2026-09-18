@@ -54,25 +54,28 @@ export const Users = () => {
   };
 
   return (
-    <SectionCard title={'Список пользователей'}>
-      {errorMessage ? (
-        <p className="text-center">{errorMessage}</p>
-      ) : (
-        <div className="px-20">
-          <ul className="m-auto ">
-            {users.map(({ id, login, roleId }) => (
-              <UserRow
-                key={id}
-                login={login}
-                roleId={roleId}
-                roles={roles.filter(({ id }) => id !== ROLE.GUEST)}
-                onUserRemove={() => onUserRemove(id)}
-                userId={id}
-              />
-            ))}
-          </ul>
-        </div>
-      )}
-    </SectionCard>
+    <>
+      <H2 className="sr-only">Пользователи</H2>
+      <SectionCard title={'Список пользователей'}>
+        {errorMessage ? (
+          <p className="text-center">{errorMessage}</p>
+        ) : (
+          <div className="px-20">
+            <ul className="m-auto ">
+              {users.map(({ id, login, roleId }) => (
+                <UserRow
+                  key={id}
+                  login={login}
+                  roleId={roleId}
+                  roles={roles.filter(({ id }) => id !== ROLE.GUEST)}
+                  onUserRemove={() => onUserRemove(id)}
+                  userId={id}
+                />
+              ))}
+            </ul>
+          </div>
+        )}
+      </SectionCard>
+    </>
   );
 };

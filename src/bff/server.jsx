@@ -1,5 +1,6 @@
 import {
   authorize,
+  fetchComments,
   fetchRoles,
   fetchSketch,
   fetchUserBySessionHash,
@@ -18,6 +19,7 @@ export const server = {
   fetchUserBySessionHash,
   fetchRoles,
   fetchSketch,
+  fetchComments,
   removeUser,
   saveUserUpdates,
 };

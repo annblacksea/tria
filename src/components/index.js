@@ -13,3 +13,4 @@ export * from './user-row/UserRow';
 export * from './section-card/SectionCard';
 export * from './carousel/Carousel';
 export * from './sketch-content/SketchContent';
+export * from './comments/Comments';

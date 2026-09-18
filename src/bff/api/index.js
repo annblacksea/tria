@@ -9,3 +9,4 @@ export * from './create-session';
 export * from './get-user-id-from-session';
 export * from './delete-session';
 export * from './get-session-by-hash';
+export * from './get-comments';
