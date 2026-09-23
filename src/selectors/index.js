@@ -4,3 +4,4 @@ export * from './select-user-id';
 export * from './select-user-role';
 export * from './select-sketch';
 export * from './select-comments';
+export * from './select-is-initialized';

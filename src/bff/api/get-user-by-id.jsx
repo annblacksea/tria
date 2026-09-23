@@ -1,6 +1,11 @@
 import { transformUser } from '../transformers';
 
 export const getUserById = async (userId) => {
+  if (!userId) {
+    console.warn('userId:', userId);
+    return null;
+  }
+
   try {
     const response = await fetch(`http://localhost:3000/users/${userId}`);
 

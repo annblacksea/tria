@@ -11,6 +11,7 @@ const initialState = {
     //добавить также изображение по-умолчанию
   },
   session: null,
+  isInitialized: false,
 };
 
 const userSlice = createSlice({
@@ -18,12 +19,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setUser(state, action) {
-      state.userData = action.payload.userData;
+      state.userData = action.payload.userData || initialState.userData;
       state.session = action.payload.session;
+      state.isInitialized = true;
       console.log(action.payload);
     },
     logout() {
-      return initialState;
+      return { ...initialState, isInitialized: true };
     },
   },
 });

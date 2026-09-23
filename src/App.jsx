@@ -3,18 +3,21 @@ import { useEffect } from 'react';
 import { Layout } from './components/layout/Layout';
 import { Authorisation, Registration, Sketch, UserPage, Users } from './pages';
 import styles from './App.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from './hooks';
 import { setUser } from './slices/user-slice';
+import { selectIsInitialized } from './selectors';
 
 function App() {
   const serverRequest = useServerRequest();
   const dispatch = useDispatch();
+  const isInitialized = useSelector(selectIsInitialized);
 
   useEffect(() => {
     const currentSessionHash = sessionStorage.getItem('hash');
 
     if (!currentSessionHash) {
+      dispatch(setUser({ userData: null, session: null }));
       return;
     }
 
@@ -27,7 +30,7 @@ function App() {
     });
   }, [serverRequest]);
 
-  return (
+  return isInitialized ? (
     <>
       <Routes>
         <Route path="/auth" element={<Authorisation />} />
@@ -46,6 +49,8 @@ function App() {
         </Route>
       </Routes>
     </>
+  ) : (
+    <div>Загрузка...</div>
   );
 }
 
