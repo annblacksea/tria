@@ -34,6 +34,8 @@ export const Comments = ({ sketchId }) => {
 
   return (
     <SectionCard title="Комментарии">
+      //проверка отображения на клиенте "Чтобы просматривать и оставлять комментарии, пожалуйста,
+      зарегистрируйтесь"
       <ul>
         {comments.map(({ id, text }) => (
           <li key={id}>

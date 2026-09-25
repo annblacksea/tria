@@ -16,9 +16,16 @@ export const sessions = {
     const session = await getSessionByHash(sessionHash);
     await deleteSession(session?.id);
   },
-  async access(sessionHash, accessRoles) {
+  async access(sessionHash, accessRoles = [], ownerId) {
     const userId = await getUserIdFromSession(sessionHash);
+    if (!userId) return false;
+
     const user = await getUserById(userId);
-    return !!user && accessRoles.includes(user.roleId);
+    if (!user) return false;
+
+    const hasRoleAccess = accessRoles.includes(user.roleId);
+    const isOwner = ownerId ? userId === ownerId : false;
+
+    return hasRoleAccess || isOwner;
   },
 };

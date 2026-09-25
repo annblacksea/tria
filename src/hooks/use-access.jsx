@@ -5,10 +5,11 @@ import { selectUserID, selectUserRole } from '../selectors';
 export const useAccess = (accessesRoles = [], ownerID) => {
   const currentUserRole = useSelector(selectUserRole) || ROLE.GUEST;
   const currentUserID = useSelector(selectUserID);
-  const whoCanSee = [...accessesRoles, ROLE.ADMIN];
-  const isOwner = currentUserID === ownerID;
-  const hasRoleAccess = whoCanSee.includes(currentUserRole);
-  const ownerAccess = ownerID && isOwner;
 
-  return hasRoleAccess || ownerAccess;
+  const whoCanSee = [...accessesRoles, ROLE.ADMIN];
+
+  const hasRoleAccess = whoCanSee.includes(currentUserRole);
+  const isOwner = ownerID ? currentUserID === ownerID : false;
+
+  return hasRoleAccess || isOwner;
 };

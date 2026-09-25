@@ -3,7 +3,7 @@ import { ROLE } from '../constants';
 import { sessions } from '../sessions';
 
 export const fetchComments = async (session, sketchId) => {
-  const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.USER, ROLE.GUEST];
+  const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR, ROLE.USER];
 
   if (!(await sessions.access(session, accessRoles))) {
     return { res: null, error: 'Доступ запрещен' };
