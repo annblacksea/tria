@@ -1,16 +1,17 @@
 import { useSelector } from 'react-redux';
 import { ROLE } from '../../constants/roles';
 import { selectUserRole } from '../../selectors';
-import { CheckAccess } from '../check-access/CheckAccess';
 import { useState } from 'react';
 import { Icon } from '../icon/Icon';
-import { useServerRequest } from '../../hooks';
+import { useAccess, useServerRequest } from '../../hooks';
 
 export const UserRow = ({ login, roleId, roles, onUserRemove, userId }) => {
   const adminRole = useSelector(selectUserRole);
   const requestServer = useServerRequest();
   const [initialRoleId, setInitialRoleId] = useState(roleId);
   const [selectedRoleId, setSelectedRoleId] = useState(roleId);
+  const canDelete = useAccess([ROLE.ADMIN]);
+  const canChangeRole = useAccess([ROLE.ADMIN]);
 
   const isSaveButtonDisabled = +selectedRoleId === +initialRoleId;
 
@@ -48,26 +49,27 @@ export const UserRow = ({ login, roleId, roles, onUserRemove, userId }) => {
           {login}
           {adminRole === ROLE.MODERATOR && <span>({searchRoleName(roleId)})</span>}
         </p>
-        <CheckAccess>
+        {canDelete && (
           <Icon onClick={onUserRemove} iconName={'trash-o'} text={'Удалить пользователя'} />
-        </CheckAccess>
+        )}
       </div>
-
-      <CheckAccess>
-        <select value={selectedRoleId} onChange={onRoleChange}>
-          {roles.map(({ id: roleId, name: roleName }) => (
-            <option key={roleId} value={roleId}>
-              {roleName}
-            </option>
-          ))}
-        </select>
-        <Icon
-          iconName={'floppy-o'}
-          text={'Сохранить новую роль пользователя'}
-          disabled={isSaveButtonDisabled}
-          onClick={() => onRoleSave(userId, selectedRoleId)}
-        />
-      </CheckAccess>
+      {canChangeRole && (
+        <>
+          <select className="cursor-pointer" value={selectedRoleId} onChange={onRoleChange}>
+            {roles.map(({ id: roleId, name: roleName }) => (
+              <option key={roleId} value={roleId}>
+                {roleName}
+              </option>
+            ))}
+          </select>
+          <Icon
+            iconName={'floppy-o'}
+            text={'Сохранить новую роль пользователя'}
+            disabled={isSaveButtonDisabled}
+            onClick={() => onRoleSave(userId, selectedRoleId)}
+          />
+        </>
+      )}
     </li>
   );
 };

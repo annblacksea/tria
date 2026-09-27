@@ -1,5 +1,4 @@
 import { createUser, getUserByLogin } from '../api';
-import { sessions } from '../sessions';
 import { authorize } from './authorize';
 
 export const register = async (regLogin, regPassword) => {

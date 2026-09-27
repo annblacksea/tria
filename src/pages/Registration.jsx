@@ -3,7 +3,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { Form, TextButton, H2, Input } from '../components';
-import { server } from '../bff/server';
 import { useDispatch } from 'react-redux';
 import { setUser } from '../slices/user-slice';
 import { useNavigate } from 'react-router-dom';

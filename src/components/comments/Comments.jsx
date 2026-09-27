@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { SectionCard } from '../section-card/SectionCard';
 import { selectComments } from '../../selectors';
-import { useServerRequest } from '../../hooks';
+import { useAccess, useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { setCommentsData } from '../../slices/comments-slice';
+import { ROLE } from '../../constants/roles';
 
 export const Comments = ({ sketchId }) => {
   const comments = useSelector(selectComments);
   const dispatch = useDispatch();
   const [fetchCommentsError, setFetchCommentsError] = useState(null);
   const requestServer = useServerRequest();
+  const canSeeComments = useAccess([ROLE.USER, ROLE.MODERATOR, ROLE.ADMIN]);
 
   useEffect(() => {
     const loadComments = async () => {
@@ -34,15 +36,17 @@ export const Comments = ({ sketchId }) => {
 
   return (
     <SectionCard title="Комментарии">
-      //проверка отображения на клиенте "Чтобы просматривать и оставлять комментарии, пожалуйста,
-      зарегистрируйтесь"
-      <ul>
-        {comments.map(({ id, text }) => (
-          <li key={id}>
-            <p>{text}</p>
-          </li>
-        ))}
-      </ul>
+      {canSeeComments ? (
+        <ul>
+          {comments.map(({ id, text }) => (
+            <li key={id}>
+              <p>{text}</p>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>Чтобы просматривать и оставлять комментарии, пожалуйста, зарегистрируйтесь</p>
+      )}
     </SectionCard>
   );
 };

@@ -7,7 +7,6 @@ export * from './buttons/TextButton';
 export * from './icon/Icon';
 export * from './headers/H2';
 export * from './form/Form';
-export * from './check-access/CheckAccess';
 export * from './control-panel/ControlPanel';
 export * from './user-row/UserRow';
 export * from './section-card/SectionCard';
