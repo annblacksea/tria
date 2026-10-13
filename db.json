@@ -55,15 +55,38 @@
       "published_at": "2025-19-11"
     }
   ],
-  "sessions": [],
-  "comments": [
+  "sessions": [
     {
-      "id": "01",
-      "sketch_id": "001",
       "user_id": "4f14",
-      "text": "Тестовый комментарий",
-      "created_at": "2025-11-17 13:13"
+      "session_hash": "52388617029979",
+      "id": 1
+    },
+    {
+      "user_id": "001",
+      "session_hash": "41239298498225",
+      "id": 2
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "45221637947134",
+      "id": 3
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "64378360872589",
+      "id": 4
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "27155824783317",
+      "id": 5
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "27356180236142",
+      "id": 6
     }
   ],
+  "comments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

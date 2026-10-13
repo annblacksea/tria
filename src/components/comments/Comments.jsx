@@ -4,6 +4,7 @@ import { selectComments } from '../../selectors';
 import { useAccess, useServerRequest } from '../../hooks';
 import { useEffect, useState } from 'react';
 import { setCommentsData } from '../../slices/comments-slice';
+import { CommentItem } from './comment-item/CommentItem';
 import { ROLE } from '../../constants/roles';
 
 export const Comments = ({ sketchId }) => {
@@ -35,12 +36,18 @@ export const Comments = ({ sketchId }) => {
   }, [sketchId, requestServer]);
 
   return (
-    <SectionCard title="Комментарии">
+    <SectionCard title="Комментарии" className="">
       {canSeeComments ? (
-        <ul>
-          {comments.map(({ id, text }) => (
+        <ul className="flex justify-center">
+          {comments.map(({ id, authorLogin, userId, text, createdAt }) => (
             <li key={id}>
-              <p>{text}</p>
+              <CommentItem
+                id={id}
+                authorId={userId}
+                authorLogin={authorLogin}
+                text={text}
+                createdAt={createdAt}
+              />
             </li>
           ))}
         </ul>

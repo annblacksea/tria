@@ -10,3 +10,6 @@ export * from './get-user-id-from-session';
 export * from './delete-session';
 export * from './get-session-by-hash';
 export * from './get-comments';
+export * from './get-users-by-ids';
+export * from './update-comment';
+export * from './delete-comment';

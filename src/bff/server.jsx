@@ -7,7 +7,9 @@ import {
   fetchUsers,
   logout,
   register,
+  removeComment,
   removeUser,
+  saveCommentUpdates,
   saveUserUpdates,
 } from './operations';
 
@@ -21,5 +23,7 @@ export const server = {
   fetchSketch,
   fetchComments,
   removeUser,
+  removeComment,
   saveUserUpdates,
+  saveCommentUpdates,
 };

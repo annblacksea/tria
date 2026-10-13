@@ -8,3 +8,5 @@ export * from './save-user-updates';
 export * from './fetch-sketch';
 export * from './fetch-user-by-session-hash';
 export * from './fetch-comments';
+export * from './save-comment-updates';
+export * from './remove-comment';
