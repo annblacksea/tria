@@ -14,3 +14,4 @@ export * from './carousel/Carousel';
 export * from './sketch-content/SketchContent';
 export * from './comments/Comments';
 export * from './comments/comment-item/CommentItem';
+export * from './new-comment-form/NewCommentForm';

@@ -19,9 +19,13 @@ const commentsSlice = createSlice({
         comment.id !== action.payload;
       });
     },
+    addComment(state, action) {
+      state.push(action.payload);
+    },
   },
 });
 
-export const { setCommentsData, updateCommentData, deleteCommentData } = commentsSlice.actions;
+export const { setCommentsData, updateCommentData, deleteCommentData, addComment } =
+  commentsSlice.actions;
 
 export default commentsSlice.reducer;

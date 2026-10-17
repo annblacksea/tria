@@ -1,4 +1,5 @@
 import {
+  addNewComment,
   authorize,
   fetchComments,
   fetchRoles,
@@ -26,4 +27,5 @@ export const server = {
   removeComment,
   saveUserUpdates,
   saveCommentUpdates,
+  addNewComment,
 };

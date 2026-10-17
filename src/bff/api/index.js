@@ -13,3 +13,4 @@ export * from './get-comments';
 export * from './get-users-by-ids';
 export * from './update-comment';
 export * from './delete-comment';
+export * from './add-comment';
