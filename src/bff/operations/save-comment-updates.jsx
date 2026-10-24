@@ -4,7 +4,7 @@ import { sessions } from '../sessions';
 
 export const saveCommentUpdates = async (session, ownerId, commentId, text) => {
   const accessRoles = [ROLE.ADMIN];
-  if (!sessions.access(session, accessRoles, ownerId)) {
+  if (!(await sessions.access(session, accessRoles, ownerId))) {
     return { res: null, error: 'Доступ к функции изменения комментария запрещен' };
   }
 

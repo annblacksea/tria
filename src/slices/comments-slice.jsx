@@ -15,9 +15,7 @@ const commentsSlice = createSlice({
       updatedComment.text = action.payload.text;
     },
     deleteCommentData(state, action) {
-      return state.filter((comment) => {
-        comment.id !== action.payload;
-      });
+      return state.filter((comment) => comment.id !== action.payload);
     },
     addComment(state, action) {
       state.push(action.payload);

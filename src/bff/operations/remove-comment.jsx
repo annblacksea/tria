@@ -5,7 +5,7 @@ import { sessions } from '../sessions';
 export const removeComment = async (session, ownerId, commentId) => {
   const accessRoles = [ROLE.ADMIN, ROLE.MODERATOR];
 
-  if (!sessions.access(session, accessRoles, ownerId)) {
+  if (!(await sessions.access(session, accessRoles, ownerId))) {
     return { res: null, error: 'Доступ к функции удаления комментария запрещен' };
   }
 

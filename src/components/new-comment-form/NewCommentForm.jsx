@@ -37,7 +37,7 @@ export const NewCommentForm = ({ sketchId }) => {
       {canSeeNewCommentForm ? (
         <form className="flex flex-col w-full py-4" onSubmit={onNewCommentSave}>
           <textarea
-            className="w-full p-3 rounded-2xl bg-[#f9f5f5]"
+            className=" p-3 rounded-2xl bg-[var(--color-background)] "
             value={newCommentText}
             onChange={(event) => setNewCommentText(event.target.value)}
           />

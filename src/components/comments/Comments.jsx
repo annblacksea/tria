@@ -38,7 +38,7 @@ export const Comments = ({ sketchId }) => {
   return (
     <SectionCard title="Комментарии" className="">
       {canSeeComments ? (
-        <ul className="flex justify-center">
+        <ul className="flex flex-col items-center gap-7 ">
           {comments.map(({ id, authorLogin, userId, text, createdAt }) => (
             <li key={id}>
               <CommentItem

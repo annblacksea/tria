@@ -5,7 +5,8 @@ import { Icon } from '../../icon/Icon';
 import { TextButton } from '../../buttons/TextButton';
 import { useServerRequest } from '../../../hooks';
 import { useDispatch } from 'react-redux';
-import { deleteCommentData, updateCommentData } from '../../../slices/comments-slice';
+import { removeCommentAsync } from '../../../thunks/remove-comment-async';
+import { updateCommentAsync } from '../../../thunks/update-comment-async';
 
 export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   const canEdit = useAccess([ROLE.ADMIN], authorId);
@@ -15,16 +16,17 @@ export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   const requestServer = useServerRequest();
   const dispatch = useDispatch();
 
-  const onSaveEdit = async () => {
+  const onSaveEdit = async (event) => {
+    event.preventDefault();
+
     try {
       if (!editedText.trim()) {
         return;
       }
-      const responce = await requestServer('saveCommentUpdates', authorId, id, editedText);
-      if (!responce) {
+      const updated = await dispatch(updateCommentAsync(requestServer, authorId, id, editedText));
+      if (!updated) {
         return;
       }
-      dispatch(updateCommentData({ id, text: editedText }));
     } catch (error) {
       return error.message;
     } finally {
@@ -33,15 +35,7 @@ export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   };
 
   const onDeleteComment = async () => {
-    try {
-      const responce = await requestServer('removeComment', authorId, id);
-      if (!responce) {
-        return;
-      }
-      dispatch(deleteCommentData(id));
-    } catch (error) {
-      return error.message;
-    }
+    await dispatch(removeCommentAsync(requestServer, authorId, id));
   };
 
   return (
