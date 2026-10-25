@@ -5,8 +5,8 @@ import { Icon } from '../../icon/Icon';
 import { TextButton } from '../../buttons/TextButton';
 import { useServerRequest } from '../../../hooks';
 import { useDispatch } from 'react-redux';
-import { removeCommentAsync } from '../../../thunks/remove-comment-async';
 import { updateCommentAsync } from '../../../thunks/update-comment-async';
+import { openModal } from '../../../slices/modal-slice';
 
 export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   const canEdit = useAccess([ROLE.ADMIN], authorId);
@@ -35,7 +35,13 @@ export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   };
 
   const onDeleteComment = async () => {
-    await dispatch(removeCommentAsync(requestServer, authorId, id));
+    await dispatch(
+      openModal({
+        onConfirm: 'DELETE_COMMENT',
+        confirmData: { id, authorId },
+      })
+    );
+    // await dispatch(removeCommentAsync(requestServer, authorId, id));
   };
 
   return (

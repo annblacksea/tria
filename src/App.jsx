@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from './hooks';
 import { setUser } from './slices/user-slice';
 import { selectIsInitialized } from './selectors';
+import { Modal } from './components';
 
 function App() {
   const serverRequest = useServerRequest();
@@ -48,6 +49,7 @@ function App() {
           <Route />
         </Route>
       </Routes>
+      <Modal />
     </>
   ) : (
     <div>Загрузка...</div>
