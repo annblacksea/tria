@@ -3,10 +3,10 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   id: null,
   author: null,
-  title: null,
-  imageUrl: null,
-  description: null,
-  publishedAt: null,
+  title: '',
+  images: [],
+  description: '',
+  publishedAt: '',
 };
 
 const sketchSlice = createSlice({

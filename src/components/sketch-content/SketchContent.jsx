@@ -49,7 +49,7 @@ export const SketchContent = ({ sketchId }) => {
                 <Icon iconName={'heart'} text={'В избранное'} />
               </div>
             </div>
-            <Carousel />
+            <Carousel images={sketch.images} />
             <p>{sketch.description}</p>
           </div>
         </div>
