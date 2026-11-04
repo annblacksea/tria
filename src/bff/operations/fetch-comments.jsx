@@ -11,7 +11,6 @@ export const fetchComments = async (session, sketchId) => {
 
   try {
     const commentsList = await getComments(sketchId);
-    console.log('2. Список из getComments:', commentsList);
     if (!commentsList) {
       return { res: [], error: null };
     }

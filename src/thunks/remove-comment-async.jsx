@@ -1,8 +1,8 @@
 import { deleteCommentData } from '../slices/comments-slice';
 
-export const removeCommentAsync = (requestServer, authorId, commentId) => async (dispatch) => {
+export const removeCommentAsync = (requestServer, author, commentId) => async (dispatch) => {
   try {
-    const response = await requestServer('removeComment', authorId, commentId);
+    const response = await requestServer('removeComment', author, commentId);
 
     if (response.error || !response.res) {
       return false;

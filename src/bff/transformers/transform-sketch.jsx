@@ -1,6 +1,6 @@
 export const transformSketch = (dbSketch) => ({
   id: dbSketch.id,
-  author: dbSketch.author,
+  authorId: dbSketch.author_id,
   title: dbSketch.title,
   images: dbSketch.images,
   description: dbSketch.description,

@@ -9,8 +9,10 @@ import {
   logout,
   register,
   removeComment,
+  removeSketch,
   removeUser,
   saveCommentUpdates,
+  saveSketchUpdates,
   saveUserUpdates,
 } from './operations';
 
@@ -25,7 +27,9 @@ export const server = {
   fetchComments,
   removeUser,
   removeComment,
+  removeSketch,
   saveUserUpdates,
   saveCommentUpdates,
+  saveSketchUpdates,
   addNewComment,
 };

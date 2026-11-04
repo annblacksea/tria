@@ -4,6 +4,7 @@ import { selectModalConfirmData, selectModalIsOpen, selectModalOnConfirm } from 
 import { closeModal } from '../../slices/modal-slice';
 import { useServerRequest } from '../../hooks';
 import { removeCommentAsync } from '../../thunks';
+import { useNavigate } from 'react-router-dom';
 
 export const Modal = () => {
   const isOpen = useSelector(selectModalIsOpen);
@@ -11,6 +12,7 @@ export const Modal = () => {
   const confirmData = useSelector(selectModalConfirmData);
   const dispatch = useDispatch();
   const requestServer = useServerRequest();
+  const navigate = useNavigate();
   let handleConfirm = null;
   let text = '';
 
@@ -25,6 +27,15 @@ export const Modal = () => {
         dispatch(closeModal());
       };
       text = 'Вы действительно хотите удалить комментарий?';
+      break;
+
+    case 'DELETE_SKETCH':
+      handleConfirm = async () => {
+        await requestServer('removeSketch', confirmData.ownerId, confirmData.sketchId);
+
+        dispatch(closeModal());
+      };
+      text = 'Вы действительно хотите удалить этюд?';
       break;
 
     default:

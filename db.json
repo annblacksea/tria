@@ -21,6 +21,20 @@
       "registered_at": "2026-09-27 12:52",
       "role_id": "2",
       "id": "e4_q6aV"
+    },
+    {
+      "login": "ilia",
+      "password": "Qwerty123",
+      "registered_at": "2026-10-29 18:45",
+      "role_id": "2",
+      "id": "PVE1Cvy"
+    },
+    {
+      "login": "john",
+      "password": "qWERTY123",
+      "registered_at": "2026-11-04 15:52",
+      "role_id": "2",
+      "id": "eM8frtf"
     }
   ],
   "roles": [
@@ -44,8 +58,8 @@
   "sketch": [
     {
       "id": "001",
-      "author": "annblacksea",
-      "title": "Первый эскиз",
+      "author_id": "PVE1Cvy",
+      "title": "Тестовый эскиз",
       "images": [
         {
           "id": 1,
@@ -63,70 +77,35 @@
           "description": "Женщина в белой блузе"
         }
       ],
-      "description": "Текст описания эскиза...",
+      "description": "Описание эскиза",
+      "published_at": "2025-11-19"
+    },
+    {
+      "id": "002",
+      "author_id": "4f14",
+      "title": "Тестовый эскиз 2",
+      "images": [
+        {
+          "id": 1,
+          "link": "https://fastly.picsum.photos/id/777/1200/800.jpg?hmac=2qSWsQ6WMPlNyQxQkxO7w4_nEEOUWHhHYnvXJDnkPlA",
+          "description": "Девушка на берегу озера"
+        },
+        {
+          "id": 2,
+          "link": "https://fastly.picsum.photos/id/1029/1200/800.jpg?hmac=X2hQ0S0g1EX_3DUr-gUV1veXSC-dGiJ6oS6pscnyFys",
+          "description": "Городской парк"
+        },
+        {
+          "id": 3,
+          "link": "https://fastly.picsum.photos/id/832/1200/800.jpg?hmac=6490r5lsrzsp7HqmXL5h5jWs_a9qzzljKi_arzD7U24",
+          "description": "Женщина в белой блузе"
+        }
+      ],
+      "description": "Описание эскиза 2",
       "published_at": "2025-11-19"
     }
   ],
-  "sessions": [
-    {
-      "user_id": "4f14",
-      "session_hash": "52388617029979",
-      "id": 1
-    },
-    {
-      "user_id": "001",
-      "session_hash": "41239298498225",
-      "id": 2
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "45221637947134",
-      "id": 3
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "64378360872589",
-      "id": 4
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "27155824783317",
-      "id": 5
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "27356180236142",
-      "id": 6
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "44435108360749",
-      "id": 7
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "55642321485727",
-      "id": 8
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "83244741916603",
-      "id": 9
-    },
-    {
-      "user_id": "4f14",
-      "session_hash": "43769065792631",
-      "id": 10
-    }
-  ],
-  "comments": [
-    {
-      "sketch_id": "001",
-      "user_id": "4f14",
-      "text": "комм3",
-      "created_at": "2026-10-25 20:18",
-      "id": 3
-    }
-  ],
+  "sessions": [],
+  "comments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

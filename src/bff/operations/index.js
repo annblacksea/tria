@@ -11,3 +11,5 @@ export * from './fetch-comments';
 export * from './save-comment-updates';
 export * from './remove-comment';
 export * from './add-new-comment';
+export * from './save-sketch-updates';
+export * from './remove-sketch';
