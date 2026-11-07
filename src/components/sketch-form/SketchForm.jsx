@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useLayoutEffect, useRef, useState } from 'react';
 import { Icon } from '../icon/Icon';
 import { Input } from '../input/Input';
 import { sanitazeContent } from '../../utils/sanitaze-content';
@@ -9,21 +9,28 @@ import { setSketchData } from '../../slices/sketch-slice';
 import { openModal } from '../../slices/modal-slice';
 
 export const SketchForm = ({ sketch }) => {
-  const titleRef = useRef(null);
+  const [titleText, setTitleText] = useState('');
   const descriptionRef = useRef(null);
   const requestServer = useServerRequest();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  useLayoutEffect(() => {
+    setTitleText(sketch.title);
+  }, [sketch.title]);
+
   const onSave = async () => {
-    const newTitle = sanitazeContent(titleRef.current.value);
+    const newTitle = sanitazeContent(titleText);
     const newDescription = sanitazeContent(descriptionRef.current.innerHTML);
 
     try {
-      const result = await requestServer('saveSketchUpdates', sketch.authorId, sketch.id, {
-        title: newTitle,
-        description: newDescription,
-      });
+      const result =
+        sketch.id === ''
+          ? await requestServer('addNewSketch', newTitle, [], newDescription)
+          : await requestServer('saveSketchUpdates', sketch.authorId, sketch.id, {
+              title: newTitle,
+              description: newDescription,
+            });
 
       if (!result || result.res.error) {
         return;
@@ -31,7 +38,7 @@ export const SketchForm = ({ sketch }) => {
 
       await dispatch(setSketchData(result.res));
 
-      navigate(`/sketch/${sketch.id}`);
+      navigate(`/sketch/${result.res.id}`);
     } catch (error) {
       console.error(error.message);
     }
@@ -51,11 +58,13 @@ export const SketchForm = ({ sketch }) => {
     }
   };
 
+  const onTitleChange = ({ target }) => setTitleText(target.value);
+
   return (
-    <div className="relative">
-      <Input ref={titleRef} defaultValue={sketch.title} />
+    <div className="relative p-13 bg-[var(--color-background)] ">
+      <Input value={titleText} onChange={onTitleChange} />
       <div
-        className="whitespace-pre-line"
+        className="h-30 mt-10 whitespace-pre-line bg-[var(--color-card-bg)]"
         ref={descriptionRef}
         contentEditable
         suppressContentEditableWarning

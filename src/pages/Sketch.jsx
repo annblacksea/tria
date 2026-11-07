@@ -1,6 +1,6 @@
 import { useMatch, useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { useAccess, useServerRequest } from './../hooks';
 import {
   Comments,
@@ -11,7 +11,7 @@ import {
   SketchContent,
   SketchForm,
 } from '../components';
-import { setSketchData } from './../slices/sketch-slice';
+import { resetSketchData, setSketchData } from './../slices/sketch-slice';
 import { selectSketch } from './../selectors';
 import { ROLE } from '../constants/roles';
 
@@ -20,12 +20,22 @@ export const Sketch = () => {
   const requestServer = useServerRequest();
   const dispatch = useDispatch();
   const [fetchSketchError, setFetchSketchError] = useState(null);
-  const sketchId = params.id;
   const sketch = useSelector(selectSketch);
   const isEditing = useMatch('/sketch/:id/edit');
+  const isCreating = useMatch('/sketch');
   const navigate = useNavigate();
+  const whoCanEdit = useAccess([ROLE.ADMIN, ROLE.MODERATOR], sketch.authorId);
+  const sketchId = params.id;
+
+  useLayoutEffect(() => {
+    dispatch(resetSketchData());
+  }, [dispatch, isCreating]);
 
   useEffect(() => {
+    if (isCreating) {
+      return;
+    }
+
     const loadSketch = async () => {
       try {
         const result = await requestServer('fetchSketch', sketchId);
@@ -42,7 +52,7 @@ export const Sketch = () => {
     };
 
     loadSketch();
-  }, [sketchId, requestServer]);
+  }, [sketchId, requestServer, isCreating, isEditing, sketchId, dispatch]);
 
   return (
     <>
@@ -53,7 +63,7 @@ export const Sketch = () => {
             <span className="mr-10">{sketch.authorLogin}</span>
             <span>{sketch.publishedAt}</span>
           </div>
-          {!isEditing && useAccess([ROLE.ADMIN, ROLE.MODERATOR], sketch.authorId) && (
+          {!isCreating && !isEditing && whoCanEdit && (
             <div className="flex gap-3">
               <Icon
                 iconName={'pencil'}
@@ -64,14 +74,14 @@ export const Sketch = () => {
             </div>
           )}
         </div>
-        {isEditing ? (
+        {isEditing || isCreating ? (
           <SketchForm sketch={sketch} />
         ) : (
           <SketchContent images={sketch.images} description={sketch.description} />
         )}
       </SectionCard>
-      {!isEditing && <NewCommentForm sketchId={sketchId} />}
-      {!isEditing && <Comments sketchId={sketchId} />}
+      {!isCreating && !isEditing && <NewCommentForm sketchId={sketchId} />}
+      {!isCreating && !isEditing && <Comments sketchId={sketchId} />}
     </>
   );
 };

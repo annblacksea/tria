@@ -105,7 +105,33 @@
       "published_at": "2025-11-19"
     }
   ],
-  "sessions": [],
+  "sessions": [
+    {
+      "user_id": "PVE1Cvy",
+      "session_hash": "37005099731010",
+      "id": 1
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "24332083964176",
+      "id": 2
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "96415136762867",
+      "id": 3
+    },
+    {
+      "user_id": "PVE1Cvy",
+      "session_hash": "24668191608525",
+      "id": 4
+    },
+    {
+      "user_id": "4f14",
+      "session_hash": "31950958341386",
+      "id": 5
+    }
+  ],
   "comments": [],
   "$schema": "./node_modules/json-server/schema.json"
 }

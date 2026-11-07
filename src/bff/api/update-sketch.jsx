@@ -1,3 +1,5 @@
+import { transformSketch } from '../transformers';
+
 export const updateSketch = async (sketchId, sketchData) => {
   try {
     const response = await fetch(`http://localhost:3000/sketch/${sketchId}`, {
@@ -14,7 +16,7 @@ export const updateSketch = async (sketchId, sketchData) => {
 
     const updatedSketch = await response.json();
     console.log('Ответ API при изменении этюда: ', updatedSketch);
-    return updatedSketch;
+    return updatedSketch && transformSketch(updatedSketch);
   } catch (error) {
     console.error(error.message);
     return false;

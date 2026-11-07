@@ -7,7 +7,7 @@ export const ControlPanel = () => {
 
   return (
     <nav className="flex items-center gap-2 text-2xl">
-      <Icon to={'/create-sketch'} iconName={'plus'} text={'Создать публикацию'} />
+      <Icon to={'/sketch'} iconName={'plus'} text={'Создать публикацию'} />
       {canSeeUsersIcon && <Icon iconName={'users'} text={'Список пользователей'} to={'/users'} />}
     </nav>
   );

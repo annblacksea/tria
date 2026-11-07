@@ -16,3 +16,4 @@ export * from './delete-comment';
 export * from './delete-sketch';
 export * from './add-comment';
 export * from './update-sketch';
+export * from './create-sketch';

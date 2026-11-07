@@ -1,5 +1,6 @@
 import {
   addNewComment,
+  addNewSketch,
   authorize,
   fetchComments,
   fetchRoles,
@@ -32,4 +33,5 @@ export const server = {
   saveCommentUpdates,
   saveSketchUpdates,
   addNewComment,
+  addNewSketch,
 };

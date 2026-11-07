@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  id: null,
-  authorId: null,
+  id: '',
+  authorId: '',
   title: '',
   images: [],
   description: '',
@@ -17,9 +17,12 @@ const sketchSlice = createSlice({
       console.log(action.payload);
       return action.payload;
     },
+    resetSketchData() {
+      return initialState;
+    },
   },
 });
 
-export const { setSketchData } = sketchSlice.actions;
+export const { setSketchData, resetSketchData } = sketchSlice.actions;
 
 export default sketchSlice.reducer;
