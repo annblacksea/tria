@@ -1,7 +1,7 @@
 import { Route, Router, Routes } from 'react-router-dom';
 import { useEffect, useLayoutEffect } from 'react';
 import { Layout } from './components/layout/Layout';
-import { Authorisation, Registration, Sketch, UserPage, Users } from './pages';
+import { Authorisation, Main, Registration, Sketch, UserPage, Users } from './pages';
 import styles from './App.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useServerRequest } from './hooks';
@@ -38,7 +38,7 @@ function App() {
         <Route path="/registration" element={<Registration />} />
 
         <Route element={<Layout />}>
-          <Route path="/" element={<div>Главная</div>} />
+          <Route path="/" element={<Main />} />
           <Route path="/profile/:id" element={<UserPage />} />
           <Route path="/users" element={<Users />} />
           <Route path="/sketch/:id" element={<Sketch />} />

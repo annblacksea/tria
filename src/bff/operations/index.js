@@ -14,3 +14,4 @@ export * from './add-new-comment';
 export * from './save-sketch-updates';
 export * from './remove-sketch';
 export * from './add-new-sketch';
+export * from './fetch-sketches';

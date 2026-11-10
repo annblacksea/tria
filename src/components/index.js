@@ -17,3 +17,5 @@ export * from './comments/comment-item/CommentItem';
 export * from './new-comment-form/NewCommentForm';
 export * from './modal/Modal';
 export * from './sketch-form/SketchForm';
+export * from './sketch-card/SketchCard';
+export * from './pagination/Pagination';
