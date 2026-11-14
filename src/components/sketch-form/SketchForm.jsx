@@ -61,10 +61,10 @@ export const SketchForm = ({ sketch }) => {
   const onTitleChange = ({ target }) => setTitleText(target.value);
 
   return (
-    <div className="relative p-13 bg-[var(--color-background)] ">
+    <div className="relative bg-background p-13 text-main-text">
       <Input value={titleText} onChange={onTitleChange} />
       <div
-        className="h-30 mt-10 whitespace-pre-line bg-[var(--color-card-bg)]"
+        className="mt-10 h-30 whitespace-pre-line rounded-2xl border border-border-light bg-card-bg p-3 text-main-text focus:outline-none focus:ring-2 focus:ring-accent"
         ref={descriptionRef}
         contentEditable
         suppressContentEditableWarning

@@ -105,9 +105,10 @@ form {
 }
 
 .pageWrapper {
-  display: flex;
   position: relative;
+  display: flex;
   flex-direction: column;
+  gap: 3vh;
   min-height: 100vh;
   overflow: hidden;
 }

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 export const Icon = ({ iconName, text, to, className = '', disabled, ...props }) => {
   const styles = `inline-flex items-center justify-center
     transition-all duration-300 cursor-pointer
-    text-[var(--main-text)] hover:text-[var(--accent-red)]
+    text-main-text hover:text-accent
     hover:scale-125 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100
-    bg-transparent border-none outline-none
+    bg-transparent border-none outline-none focus-visible:ring-2 focus-visible:ring-accent
     ${className}
 `;
   const icon = (

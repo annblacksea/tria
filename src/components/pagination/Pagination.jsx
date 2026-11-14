@@ -2,8 +2,8 @@ import { TextButton } from '../buttons/TextButton';
 
 export const Pagination = ({ setPage, currentPage, lastPage }) => {
   return (
-    <div>
-      <ul className="flex justify-center items-center gap-1">
+    <div className="py-7">
+      <ul className="flex justify-center items-center gap-3 ">
         <li>
           <TextButton disabled={currentPage === 1} onClick={() => setPage(1)}>
             Первая

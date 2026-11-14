@@ -55,7 +55,7 @@ export const Authorisation = () => {
 
   return (
     <section className="container h-screen flex flex-col items-center justify-center ">
-      <div className="w-full max-w-200 h-[60vh] p-15 bg-[#9ec0c0] rounded-4xl shadow-2xl">
+      <div className="h-[60vh] w-full max-w-200 rounded-4xl border border-border-light bg-card-bg p-15 text-main-text shadow-2xl">
         <H2 className="text-center">Авторизация</H2>
         {(isSubmitting && <p>Загрузка...</p>) || (
           <Form onSubmit={handleSubmit(onSubmit)}>

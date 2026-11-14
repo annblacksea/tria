@@ -45,7 +45,7 @@ export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
   };
 
   return (
-    <div className="w-350 bg-[var(--color-background)] rounded-2xl p-7 text-sm">
+    <div className="w-350 rounded-2xl border border-border-light bg-card-bg p-7 text-sm text-main-text">
       <div className="flex justify-between ">
         <span>{authorLogin}</span>
         <span>{createdAt}</span>
@@ -53,7 +53,7 @@ export const CommentItem = ({ id, authorId, authorLogin, text, createdAt }) => {
       {isEditing === true ? (
         <form className="flex flex-col w-full py-4" onSubmit={onSaveEdit}>
           <textarea
-            className="w-full p-3 rounded-2xl bg-[#f9f5f5]"
+            className="w-full rounded-2xl border border-border-light bg-background p-3 text-main-text focus:outline-none focus:ring-2 focus:ring-accent"
             value={editedText}
             onChange={(event) => setEditedText(event.target.value)}
           />

@@ -55,7 +55,11 @@ export const UserRow = ({ login, roleId, roles, onUserRemove, userId }) => {
       </div>
       {canChangeRole && (
         <>
-          <select className="cursor-pointer" value={selectedRoleId} onChange={onRoleChange}>
+          <select
+            className="cursor-pointer rounded-lg border border-border-light bg-card-bg p-2 text-main-text focus:outline-none focus:ring-2 focus:ring-accent"
+            value={selectedRoleId}
+            onChange={onRoleChange}
+          >
             {roles.map(({ id: roleId, name: roleName }) => (
               <option key={roleId} value={roleId}>
                 {roleName}

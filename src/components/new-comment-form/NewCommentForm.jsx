@@ -35,9 +35,12 @@ export const NewCommentForm = ({ sketchId }) => {
   return (
     <SectionCard title="Новый комментарий">
       {canSeeNewCommentForm ? (
-        <form className="flex flex-col w-full py-4" onSubmit={onNewCommentSave}>
+        <form
+          className="flex w-full flex-col rounded-2xl bg-background p-4 transition-colors duration-300"
+          onSubmit={onNewCommentSave}
+        >
           <textarea
-            className=" p-3 rounded-2xl bg-[var(--color-background)] "
+            className="rounded-2xl border border-border-light bg-card-bg p-3 text-main-text focus:outline-none focus:ring-2 focus:ring-accent"
             value={newCommentText}
             onChange={(event) => setNewCommentText(event.target.value)}
           />

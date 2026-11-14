@@ -4,7 +4,7 @@ import { Footer } from '../footer/Footer';
 
 export const Layout = () => {
   return (
-    <div className="pageWrapper px-10 py-5 bg-gray-100">
+    <div className="pageWrapper px-10 py-5 bg-background text-main-text">
       <Header />
       <main>
         <Outlet />

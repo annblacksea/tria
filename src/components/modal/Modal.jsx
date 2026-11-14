@@ -44,8 +44,8 @@ export const Modal = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col justify-center items-center  bg-black/50 backdrop-blur-sm">
-      <div className="flex flex-col justify-between w-full max-w-200 h-[60vh] p-15 bg-[#9ec0c0] rounded-4xl shadow-2xl">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="flex h-[60vh] w-full max-w-200 flex-col justify-between rounded-4xl border border-border-light bg-card-bg p-15 text-main-text shadow-2xl">
         <h3 className="text-center">{text}</h3>
         <div className="flex justify-between mt-auto">
           <TextButton onClick={handleConfirm}>Да</TextButton>

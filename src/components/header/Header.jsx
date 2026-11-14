@@ -16,8 +16,11 @@ export const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <header className="container bg-components rounded-4xl px-15 py-3 flex items-center justify-between ">
-      <Logo />
+    <header className="container flex items-center justify-between m-auto rounded-4xl border border-border-light bg-card-bg px-15 py-3 text-main-text">
+      <ThemeButton />
+      <Link to="/">
+        <Logo />
+      </Link>
       <div className="flex items-center gap-5">
         {!userSession ? (
           <Link to="/auth">Войти</Link>
@@ -40,7 +43,6 @@ export const Header = () => {
           </div>
         )}
       </div>
-      <ThemeButton />
     </header>
   );
 };

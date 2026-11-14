@@ -1,3 +1,7 @@
 export const H2 = ({ children, className = '' }) => {
-  return <h2 className={`font-[--header-font] text-center text-3xl ${className}`}>{children}</h2>;
+  return (
+    <h2 className={`text-center font-[family-name:var(--font-header)] text-3xl text-main-text ${className}`}>
+      {children}
+    </h2>
+  );
 };
