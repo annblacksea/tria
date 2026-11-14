@@ -103,6 +103,54 @@
       ],
       "description": "Описание эскиза 2",
       "published_at": "2025-11-19"
+    },
+    {
+      "id": "003",
+      "author_id": "PVE1Cvy",
+      "title": "Тестовый эскиз 3",
+      "images": [
+        {
+          "id": 1,
+          "link": "https://fastly.picsum.photos/id/777/1200/800.jpg?hmac=2qSWsQ6WMPlNyQxQkxO7w4_nEEOUWHhHYnvXJDnkPlA",
+          "description": "Девушка на берегу озера"
+        },
+        {
+          "id": 2,
+          "link": "https://fastly.picsum.photos/id/1029/1200/800.jpg?hmac=X2hQ0S0g1EX_3DUr-gUV1veXSC-dGiJ6oS6pscnyFys",
+          "description": "Городской парк"
+        },
+        {
+          "id": 3,
+          "link": "https://fastly.picsum.photos/id/832/1200/800.jpg?hmac=6490r5lsrzsp7HqmXL5h5jWs_a9qzzljKi_arzD7U24",
+          "description": "Женщина в белой блузе"
+        }
+      ],
+      "description": "Описание эскиза",
+      "published_at": "2025-11-19"
+    },
+    {
+      "id": "004",
+      "author_id": "PVE1Cvy",
+      "title": "Тестовый эскиз 4",
+      "images": [
+        {
+          "id": 1,
+          "link": "https://fastly.picsum.photos/id/777/1200/800.jpg?hmac=2qSWsQ6WMPlNyQxQkxO7w4_nEEOUWHhHYnvXJDnkPlA",
+          "description": "Девушка на берегу озера"
+        },
+        {
+          "id": 2,
+          "link": "https://fastly.picsum.photos/id/1029/1200/800.jpg?hmac=X2hQ0S0g1EX_3DUr-gUV1veXSC-dGiJ6oS6pscnyFys",
+          "description": "Городской парк"
+        },
+        {
+          "id": 3,
+          "link": "https://fastly.picsum.photos/id/832/1200/800.jpg?hmac=6490r5lsrzsp7HqmXL5h5jWs_a9qzzljKi_arzD7U24",
+          "description": "Женщина в белой блузе"
+        }
+      ],
+      "description": "Описание эскиза",
+      "published_at": "2025-11-19"
     }
   ],
   "sessions": [

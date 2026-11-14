@@ -3,23 +3,27 @@ import { SectionCard } from '../components/section-card/SectionCard';
 import { useServerRequest } from '../hooks';
 import { Link } from 'react-router-dom';
 import { Pagination, SketchCard } from '../components';
+import { PAGINATION_LIMIT } from '../constants';
 
 export const Main = () => {
   const requestServer = useServerRequest();
   const [sketchesList, setSketchesList] = useState([]);
+  const [page, setPage] = useState(1);
+  const [lastPage, setLastPage] = useState(1);
 
   useEffect(() => {
     const loadSketches = async () => {
       try {
-        const loadSketches = await requestServer('fetchSketches');
+        const loadSketches = await requestServer('fetchSketches', page, PAGINATION_LIMIT);
         setSketchesList(loadSketches.res);
+        setLastPage(2);
       } catch (error) {
         console.error('Не удалось загрузить sketches:', error);
       }
     };
 
     loadSketches();
-  }, [requestServer]);
+  }, [requestServer, page]);
 
   return (
     <SectionCard title={'Главная страница'}>
@@ -37,7 +41,7 @@ export const Main = () => {
           );
         })}
       </ul>
-      <Pagination />
+      {lastPage > 1 && <Pagination setPage={setPage} currentPage={page} lastPage={lastPage} />}
     </SectionCard>
   );
 };

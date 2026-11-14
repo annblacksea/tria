@@ -1,8 +1,8 @@
 import { getSketches } from '../api';
 
-export const fetchSketches = async () => {
+export const fetchSketches = async (page, limit) => {
   try {
-    const sketches = await getSketches();
+    const sketches = await getSketches(page, limit);
 
     console.log(sketches);
 
