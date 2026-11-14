@@ -19,3 +19,4 @@ export * from './modal/Modal';
 export * from './sketch-form/SketchForm';
 export * from './sketch-card/SketchCard';
 export * from './pagination/Pagination';
+export * from './buttons/theme-button/ThemeButton';

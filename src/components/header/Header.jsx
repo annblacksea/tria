@@ -5,6 +5,7 @@ import { selectUserLogin, selectUserSession } from '../../selectors';
 import { logout } from '../../slices/user-slice';
 import { ControlPanel } from '../control-panel/ControlPanel';
 import { useServerRequest } from '../../hooks/use-server-request';
+import { ThemeButton } from '../buttons/theme-button/ThemeButton';
 
 export const Header = () => {
   const userLogin = useSelector(selectUserLogin);
@@ -17,7 +18,7 @@ export const Header = () => {
   return (
     <header className="container bg-components rounded-4xl px-15 py-3 flex items-center justify-between ">
       <Logo />
-      <div>
+      <div className="flex items-center gap-5">
         {!userSession ? (
           <Link to="/auth">Войти</Link>
         ) : (
@@ -39,6 +40,7 @@ export const Header = () => {
           </div>
         )}
       </div>
+      <ThemeButton />
     </header>
   );
 };

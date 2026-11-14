@@ -6,9 +6,11 @@ export const ControlPanel = () => {
   const canSeeUsersIcon = useAccess([ROLE.MODERATOR]);
 
   return (
-    <nav className="flex items-center gap-2 text-2xl">
-      <Icon to={'/sketch'} iconName={'plus'} text={'Создать публикацию'} />
-      {canSeeUsersIcon && <Icon iconName={'users'} text={'Список пользователей'} to={'/users'} />}
-    </nav>
+    <div>
+      <nav className="flex items-center gap-2 text-2xl">
+        <Icon to={'/sketch'} iconName={'plus'} text={'Создать публикацию'} />
+        {canSeeUsersIcon && <Icon iconName={'users'} text={'Список пользователей'} to={'/users'} />}
+      </nav>
+    </div>
   );
 };
