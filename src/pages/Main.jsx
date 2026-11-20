@@ -15,8 +15,11 @@ export const Main = () => {
     const loadSketches = async () => {
       try {
         const loadSketches = await requestServer('fetchSketches', page, PAGINATION_LIMIT);
-        setSketchesList(loadSketches.res);
-        setLastPage(2);
+        setSketchesList(loadSketches.res.sketches);
+        const lastPageLink = loadSketches.res.links.match(
+          /_page=(\d{1,4})&_limit=\d{1,3}\>; rel="last"/
+        );
+        setLastPage(+lastPageLink[1]);
       } catch (error) {
         console.error('Не удалось загрузить sketches:', error);
       }

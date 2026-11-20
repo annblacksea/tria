@@ -12,9 +12,8 @@ export const getSketches = async (page, limit) => {
     const sketches = loadedSketches.map((sketch) => transformSketch(sketch));
 
     const links = await response.headers.get('link');
-    console.log(links);
 
-    return sketches;
+    return [sketches, links];
   } catch (error) {
     console.error('Ошибка в getSketches:', error.message);
     return [];
