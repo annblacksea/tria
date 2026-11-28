@@ -1,8 +1,10 @@
 import { transformSketch } from '../transformers';
 
-export const getSketches = async (page, limit) => {
+export const getSketches = async (page, limit, searchPhrase) => {
   try {
-    const response = await fetch(`http://localhost:3000/sketch?_page=${page}&_limit=${limit}`);
+    const response = await fetch(
+      `http://localhost:3000/sketch?title_like=${searchPhrase}&_page=${page}&_limit=${limit}`
+    );
 
     if (!response.ok) {
       throw new Error('Не удалось загрузить список sketches');

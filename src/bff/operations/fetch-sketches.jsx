@@ -1,8 +1,8 @@
 import { getSketches } from '../api';
 
-export const fetchSketches = async (page, limit) => {
+export const fetchSketches = async (page, limit, searchPhrase) => {
   try {
-    const [sketches, links] = await getSketches(page, limit);
+    const [sketches, links] = await getSketches(page, limit, searchPhrase);
 
     return {
       error: null,
